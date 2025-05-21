@@ -33,7 +33,7 @@ def test_threshold(ms1, threshold, length):
     ],
 )
 def test_collapse(ms1, keep, how, length):
-    collapsed = deimos.collapse(ms1, keep=keep, how=how)
+    collapsed = deimos.subset.collapse(ms1, keep=keep, how=how)
 
     assert all(collapsed.columns == keep + ["intensity"])
     assert len(collapsed.index) == length

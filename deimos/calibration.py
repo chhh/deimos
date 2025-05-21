@@ -287,7 +287,7 @@ def tunemix_mz(
             raise ValueError("Calibrant ion with m/z {:.4f} not found.".format(mz_i))
 
         # Sum over other dimensions
-        ss_mz = deimos.collapse(subset, keep="mz")
+        ss_mz = deimos.subset.collapse(subset, keep="mz")
 
         # Intensity-weighted mass
         if method.lower() == "centroid":
@@ -700,7 +700,7 @@ def tunemix(
             raise ValueError("Calibrant ion with m/z {:.4f} not found.".format(mz_i))
 
         # Extract dt info
-        dt_profile = deimos.collapse(subset, keep="drift_time")
+        dt_profile = deimos.subset.collapse(subset, keep="drift_time")
         dt_i = dt_profile.sort_values(by="intensity", ascending=False)[
             "drift_time"
         ].values[0]

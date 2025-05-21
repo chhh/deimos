@@ -53,7 +53,7 @@ def get_1D_profiles(features, dims=["mz", "drift_time", "retention_time"]):
     profiles = {}
     for dim in dims:
         # Collapse to 1D profile
-        profile = deimos.collapse(features, keep=dim).sort_values(
+        profile = deimos.subset.collapse(features, keep=dim).sort_values(
             by=dim, ignore_index=True
         )
 

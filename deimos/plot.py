@@ -212,12 +212,12 @@ def multipanel(features, method="linear", grid_kwargs={}, normalize_grid={}, dpi
     sync_x_with_y(axes["rt-mz"], axes["dt-rt"])
 
     # Mz
-    tmp = deimos.collapse(features, keep="mz").sort_values(by="mz")
+    tmp = deimos.subset.collapse(features, keep="mz").sort_values(by="mz")
     stem(tmp["mz"].values, tmp["intensity"].values, xlabel="m/z", ax=axes["mz"])
     plt.setp(axes["mz"].get_xticklabels(), ha="center", rotation=0)
 
     # Dt
-    tmp = deimos.collapse(features, keep="drift_time").sort_values(by="drift_time")
+    tmp = deimos.subset.collapse(features, keep="drift_time").sort_values(by="drift_time")
     fill_between(
         tmp["drift_time"].values,
         tmp["intensity"].values,
@@ -227,7 +227,7 @@ def multipanel(features, method="linear", grid_kwargs={}, normalize_grid={}, dpi
     plt.setp(axes["dt"].get_xticklabels(), ha="center", rotation=0)
 
     # Rt
-    tmp = deimos.collapse(features, keep="retention_time").sort_values(
+    tmp = deimos.subset.collapse(features, keep="retention_time").sort_values(
         by="retention_time"
     )
     fill_between(
@@ -239,7 +239,7 @@ def multipanel(features, method="linear", grid_kwargs={}, normalize_grid={}, dpi
     plt.setp(axes["rt"].get_xticklabels(), ha="center", rotation=0)
 
     # Mz-dt
-    tmp = deimos.collapse(features, keep=["mz", "drift_time"])
+    tmp = deimos.subset.collapse(features, keep=["mz", "drift_time"])
     grid(
         tmp,
         dims=["mz", "drift_time"],
@@ -252,7 +252,7 @@ def multipanel(features, method="linear", grid_kwargs={}, normalize_grid={}, dpi
     axes["mz-dt"].tick_params(labelbottom=False)
 
     # Dt-rt
-    tmp = deimos.collapse(features, keep=["drift_time", "retention_time"])
+    tmp = deimos.subset.collapse(features, keep=["drift_time", "retention_time"])
     grid(
         tmp,
         dims=["drift_time", "retention_time"],
@@ -265,7 +265,7 @@ def multipanel(features, method="linear", grid_kwargs={}, normalize_grid={}, dpi
     axes["dt-rt"].tick_params(labelbottom=False)
 
     # Rt-mz
-    tmp = deimos.collapse(features, keep=["retention_time", "mz"])
+    tmp = deimos.subset.collapse(features, keep=["retention_time", "mz"])
     grid(
         tmp,
         dims=["retention_time", "mz"],

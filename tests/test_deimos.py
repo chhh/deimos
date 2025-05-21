@@ -163,7 +163,7 @@ def test_utils_namespace(attr):
         (deimos.build_index, deimos.io.build_index),
         (deimos.get_accessions, deimos.io.get_accessions),
         (deimos.threshold, deimos.subset.threshold),
-        (deimos.collapse, deimos.subset.collapse),
+        (deimos.subset.collapse, deimos.subset.collapse),
         (deimos.locate, deimos.subset.locate),
         (deimos.locate_asym, deimos.subset.locate_asym),
         (deimos.slice, deimos.subset.slice),
