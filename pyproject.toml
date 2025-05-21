@@ -1,0 +1,22 @@
+[project]
+name = "deimos"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "dask>=2025.5.1",
+    "h5py>=3.13.0",
+    "hdf5plugin>=5.1.0",
+    "matplotlib>=3.10.3",
+    "numpy>=2.2.6",
+    "pandas>=2.2.3",
+    "pymzml>=2.5.11",
+    "ripser>=0.6.12",
+    "scikit-learn>=1.6.1",
+    "scipy>=1.15.3",
+    "snakemake>=7.32.4",
+    "statsmodels>=0.14.4",
+    "tables>=3.10.1",
+    "tabula-py>=2.10.0",
+]

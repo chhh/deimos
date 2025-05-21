@@ -1,4 +1,5 @@
 # User
+.idea/
 input/
 output/
 .snakemake/
